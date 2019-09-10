@@ -509,9 +509,9 @@ class table(object):
             except:
                 print("Could not find "+c)
                 sys.stdout.flush()
+        df = df.loc[:,~df.columns.duplicated()]
         df = df.set_index('name')        
-        # df.index=df["name"].tolist()
-        # df=df.drop(["name"],axis=1)
+
         return df
 
     def loadTableData(self, df, df_key='index',table="node", table_key_column = "name", \
